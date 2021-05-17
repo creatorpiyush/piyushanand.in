@@ -112,3 +112,7 @@ body {
 .card-link:active {
     color: #000;
 }
+
+.center-top {
+    padding: 50px 0;
+}
