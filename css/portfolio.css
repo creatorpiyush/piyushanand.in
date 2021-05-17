@@ -1,0 +1,92 @@
+* {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.gallery {
+    background: #111;
+}
+
+.gallery-cell {
+    width: 66%;
+    height: 500px;
+    padding: 20px;
+    margin-right: 10px;
+    background: rgb(138, 43, 226);
+    counter-increment: gallery-cell;
+    border-radius: 15px;
+}
+
+/* @media (max-width: 1200px) { */
+.image-size {
+    width: auto;
+    height: auto;
+    margin-right: auto;
+    background: rgb(138, 43, 226);
+    border-radius: 10px;
+    counter-increment: gallery-cell;
+}
+
+/* } */
+
+@media (max-width: 768px) {
+    .image-size {
+        width: 160px;
+        height: 100px;
+        margin-right: auto;
+        background: rgb(138, 43, 226);
+        border-radius: 10px;
+        counter-increment: gallery-cell;
+    }
+}
+
+
+
+/* cell number */
+/* .gallery-cell:after {
+    display: block;
+    text-align: center;
+    content: counter(gallery-cell);
+    place-content: bottom;
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    bottom: 0px;
+} */
+
+.image-size {
+    width: 415px;
+    height: 296px;
+    margin-right: auto;
+    background: rgb(138, 43, 226);
+    border-radius: 10px;
+    counter-increment: gallery-cell;
+}
+
+.card-link:hover {
+    color: #000;
+
+    text-decoration: underline;
+
+}
+
+.card-link {
+    font-size: 1.5em;
+    color: #fff;
+    text-decoration: underline dashed;
+
+}
+
+.card-link:active {
+    color: #000;
+
+
+}
+
+.flickity-page-dots .dot {
+    background: rgb(138, 43, 226);
+}
