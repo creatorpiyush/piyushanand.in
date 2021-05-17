@@ -21,51 +21,79 @@ body {
     border-radius: 15px;
 }
 
-/* @media (max-width: 1200px) { */
-.image-size {
-    width: auto;
-    height: auto;
-    margin-right: auto;
-    background: rgb(138, 43, 226);
-    border-radius: 10px;
-    counter-increment: gallery-cell;
-}
-
-/* } */
-
-@media (max-width: 768px) {
-    .image-size {
-        width: 160px;
-        height: 100px;
-        margin-right: auto;
-        background: rgb(138, 43, 226);
-        border-radius: 10px;
-        counter-increment: gallery-cell;
-    }
-}
-
-
-
-/* cell number */
-/* .gallery-cell:after {
-    display: block;
-    text-align: center;
-    content: counter(gallery-cell);
-    place-content: bottom;
-    font-size: 1.5em;
-    margin-top: 20px;
-    color: rgb(255, 255, 255);
-    bottom: 0px;
-} */
-
 .image-size {
     width: 415px;
     height: 296px;
     margin-right: auto;
+    padding-bottom: 10px;
     background: rgb(138, 43, 226);
     border-radius: 10px;
     counter-increment: gallery-cell;
 }
+
+@media (max-width: 1200px) {}
+
+@media (max-width: 768px) {
+    .image-size {
+        width: 300px;
+        height: 200px;
+        margin-right: auto;
+        background: rgb(138, 43, 226);
+        counter-increment: gallery-cell;
+    }
+
+    div h1 {
+        font-size: 1.5rem;
+    }
+
+    div h3 {
+        font-size: 1.2rem;
+    }
+
+    .gallery-cell {
+        width: 66%;
+        height: 375px;
+        padding: auto;
+        margin-right: 10px;
+        background: rgb(138, 43, 226);
+        counter-increment: gallery-cell;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 520px) {
+    .image-size {
+        width: 160px;
+        height: 160px;
+        margin-right: auto;
+        background: rgb(138, 43, 226);
+        counter-increment: gallery-cell;
+    }
+
+    div h1 {
+        font-size: 1.5rem;
+    }
+
+    div h3 {
+        font-size: 1rem;
+    }
+
+    div p {
+        font-size: 0.8rem;
+    }
+
+
+    .gallery-cell {
+        width: 66%;
+        height: 370px;
+        padding: 20px;
+        margin-right: 10px;
+        background: rgb(138, 43, 226);
+        counter-increment: gallery-cell;
+        border-radius: 15px;
+    }
+}
+
 
 .card-link:hover {
     color: #000;
@@ -83,10 +111,4 @@ body {
 
 .card-link:active {
     color: #000;
-
-
-}
-
-.flickity-page-dots .dot {
-    background: rgb(138, 43, 226);
 }
