@@ -192,7 +192,7 @@
     <!--Google Sheets-->
     <script>
         const scriptURL =
-            'https://script.google.com/macros/s/AKfycbwnn9yPyGukUCfz8a6u5OoJTkz85Zhz8K3EjLUmrSGI3LS_4Yg/exec'
+            'https://script.google.com/macros/s/AKfycbxM7W7PDLNPaD4wPndPSuyyUZ2TJaYjXE0KHgSwHJfGdybDGer7ua44y-LUwndJDUfZ9Q/exec'
         const form = document.forms['google-sheet']
 
         form.addEventListener('submit', e => {
@@ -201,7 +201,7 @@
                     method: 'POST',
                     body: new FormData(form)
                 })
-                .then(response => alert("Thanks for Contacting ..! I Will Contact You Soon..."))
+                .then(response => alert("Thanks for Your valuable message...! I Will Contact You Soon..."))
                 .catch(error => console.error('Error!', error.message))
         })
     </script>
