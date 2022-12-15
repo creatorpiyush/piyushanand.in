@@ -132,8 +132,8 @@
                                         class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block">Anand</span>
                                 </li>
                                 <li> <span class="title">Age :</span> <span
-                                        class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block">20
-                                        Years</span> </li>
+                                        class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block" id="age">
+                                    </span> </li>
                                 <li> <span class="title">Nationality :</span> <span
                                         class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block">Indian</span>
                                 </li>
@@ -156,7 +156,7 @@
                                 </li>
                                 <li> <span class="title">languages :</span> <span
                                         class="value d-block d-sm-inline-block d-lg-block d-xl-inline-block">English,
-                                        Hindi, Punjabi</span> </li>
+                                        Hindi</span> </li>
                             </ul>
                         </div>
                         <div class="col-12 mt-3">
@@ -171,7 +171,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="box-stats with-margin">
-                                <h3 class="poppins-font position-relative">1</h3>
+                                <h3 class="poppins-font position-relative" id="yearExperience"></h3>
                                 <p class="open-sans-font m-0 position-relative text-uppercase">year of <span
                                         class="d-block">experience</span></p>
                             </div>
@@ -264,17 +264,17 @@
                             <div class="fill"></div>
                         </div>
                     </div>
-                    <h6 class="text-uppercase open-sans-font text-center mt-2 mt-sm-4">React</h6>
+                    <h6 class="text-uppercase open-sans-font text-center mt-2 mt-sm-4">Angular</h6>
                 </div>
                 <div class="col-6 col-md-3 mb-3 mb-sm-5">
-                    <div class="c100 p25">
-                        <span>25%</span>
+                    <div class="c100 p75">
+                        <span>75%</span>
                         <div class="slice">
                             <div class="bar"></div>
                             <div class="fill"></div>
                         </div>
                     </div>
-                    <h6 class="text-uppercase open-sans-font text-center mt-2 mt-sm-4">Machine Learning</h6>
+                    <h6 class="text-uppercase open-sans-font text-center mt-2 mt-sm-4">Spring MVC / Spring-Boot</h6>
                 </div>
             </div>
             <!-- Skills Ends -->
@@ -282,8 +282,14 @@
             <!-- Experience & Education Starts -->
             <div class="row">
                 <div class="col-12">
-                    <h3 class="text-uppercase pb-5 mb-0 text-left text-sm-center custom-title ft-wt-600">Experience
-                        <span>&</span> Education</h3>
+                    <h3 class="text-uppercase pb-5 mb-0 text-left text-sm-center custom-title ft-wt-600"><u>Experience
+                            <span>&</span> Education</u>
+                    </h3>
+                </div>
+
+                <div class="col-12">
+                    <h4 class="text-uppercase pb-5 mb-0 text-left text-sm-center custom-title ft-wt-400">Experience
+                    </h4>
                 </div>
 
                 <div class="col-lg-7 m-14px-tb">
@@ -293,14 +299,53 @@
                                 <div class="icon">
                                     <i class="fa fa-graduation-cap"></i>
                                 </div>
-                                <span class="time open-sans-font text-uppercase">2018 - Present</span>
-                                <h5 class="poppins-font text-uppercase">Bachelor Of technology <br> <span
+                                <span class="time open-sans-font text-uppercase">July, 2022 - Present</span>
+                                <h5 class="poppins-font text-uppercase">Associate Engineer <br> <span
+                                        class="place open-sans-font">Nagarro Software Pvt. Ltd., India</span>
+                                </h5>
+                                <p class="open-sans-font">Working on Java, Spring, Spring-Boot, SpringMVC, Hibernate,
+                                    MySQL, Angular, Nodejs, JavaScript, Typescript.
+                                </p>
+                            </li>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-graduation-cap"></i>
+                                </div>
+                                <span class="time open-sans-font text-uppercase">February, 2022 - May, 2022</span>
+                                <h5 class="poppins-font text-uppercase">Node.js Development Intern<br>
+                                    <span class="place open-sans-font"> CEOITBOX Private Limited, New Delhi,
+                                        India</span>
+                                </h5>
+                                <p class="open-sans-font">Worked with JavaScript, Nodejs, AppScript, MySQL, MongoDB,
+                                    HBS.
+                                </p>
+                                <p class="open-sans-font">Worked on Production using DigitalOcean, Contabo and AWS.
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <h4 class="text-uppercase pb-5 mb-0 text-left text-sm-center custom-title ft-wt-400"> Education
+                    </h4>
+                </div>
+
+                <div class="col-lg-7 m-14px-tb">
+                    <div class="resume-box">
+                        <ul>
+                            <li>
+                                <div class="icon">
+                                    <i class="fa fa-graduation-cap"></i>
+                                </div>
+                                <span class="time open-sans-font text-uppercase">2018 - 2022</span>
+                                <h5 class="poppins-font text-uppercase">Bachelor Of Technology (B.Tech) <br> <span
                                         class="place open-sans-font">Bharati Vidyapeeth's College of Engineering, New
                                         Delhi, India</span>
                                 </h5>
                                 <p class="open-sans-font">Electronics and Communications Engineering <span
-                                        class="pull-right"> 8.265
-                                        CGPA</span>
+                                        class="pull-right"><b><u>8.54
+                                                CGPA</u></b></span>
                                 </p>
                             </li>
                             <li>
@@ -311,14 +356,6 @@
                                 <h5 class="poppins-font text-uppercase">Senior Secondary Education / 12th Grade <br>
                                     <span class="place open-sans-font"> S. D. Public School, New Delhi, India</span>
                                 </h5>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <i class="fa fa-graduation-cap"></i>
-                                </div>
-                                <span class="time open-sans-font text-uppercase">2016</span>
-                                <h5 class="poppins-font text-uppercase">Secondary Education / 10th Grade <br><span
-                                        class="place open-sans-font"> S. D. Public School, New Delhi, India</span></h5>
                             </li>
                         </ul>
                     </div>
@@ -342,6 +379,19 @@
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/custom.js"></script>
+
+    <script>
+        let age = document.getElementById('age');
+        let birthDate = new Date('2000-09-24');
+        let today = new Date();
+        let ageInYears = today - birthDate;
+        age.innerHTML = (ageInYears / 1000 / 60 / 60 / 24 / 365).toFixed(0) + ' years';
+
+        let yearExperience = document.getElementById('yearExperience');
+        let experienceDate = new Date('2020-01-01');
+        let experienceInYears = today.getFullYear() - experienceDate.getFullYear();
+        yearExperience.innerHTML = experienceInYears;
+    </script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="/__/firebase/8.6.1/firebase-app.js"></script>
