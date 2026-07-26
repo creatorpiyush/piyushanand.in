@@ -176,7 +176,7 @@
     renderResults();
   });
 
-  // ---------- Theme switcher ----------
+  // ---------- Theme switcher & tooltip popup ----------
   var themes = [
     { key:'aurora',   name:'Aurora',   sub:'default · signature',  colors:['#0A0E14','#4FD1C5','#A399F0','#E8B34F'] },
     { key:'dracula',  name:'Dracula',  sub:'purple night',         colors:['#282A36','#8BE9FD','#BD93F9','#FF79C6'] },
@@ -187,8 +187,36 @@
   var themeOverlay = document.getElementById('themeOverlay');
   var themeResults = document.getElementById('themeResults');
   var themeBtnLabel = document.getElementById('themeBtnLabel');
+  var themeTooltip = document.getElementById('themeTooltip');
+  var themeTooltipClose = document.getElementById('themeTooltipClose');
+  var themeOpenBtn = document.getElementById('themeOpenBtn');
   var savedTheme = 'aurora';
   try{ savedTheme = localStorage.getItem('portfolio-theme') || 'aurora'; }catch(e){}
+
+  function hideThemeTooltip(){
+    if(themeTooltip){
+      themeTooltip.classList.remove('visible');
+      if(themeOpenBtn) themeOpenBtn.classList.remove('has-tooltip');
+    }
+  }
+
+  // Show tooltip popup automatically whenever anyone opens the website
+  setTimeout(function(){
+    if(themeTooltip){
+      themeTooltip.classList.add('visible');
+      if(themeOpenBtn) themeOpenBtn.classList.add('has-tooltip');
+    }
+  }, 500);
+
+  // Auto hide after 9 seconds of inactivity
+  setTimeout(hideThemeTooltip, 9000);
+
+  if(themeTooltipClose){
+    themeTooltipClose.addEventListener('click', function(e){
+      e.stopPropagation();
+      hideThemeTooltip();
+    });
+  }
 
   function applyTheme(key, persist){
     if(key === 'aurora'){ document.documentElement.removeAttribute('data-theme'); }
@@ -212,10 +240,10 @@
     });
   }
 
-  function openThemePicker(){ themeOverlay.classList.add('open'); renderThemeResults(); }
+  function openThemePicker(){ hideThemeTooltip(); themeOverlay.classList.add('open'); renderThemeResults(); }
   function closeThemePicker(){ themeOverlay.classList.remove('open'); }
 
-  document.getElementById('themeOpenBtn').addEventListener('click', openThemePicker);
+  if(themeOpenBtn) themeOpenBtn.addEventListener('click', openThemePicker);
   themeOverlay.addEventListener('click', function(e){ if(e.target === themeOverlay) closeThemePicker(); });
 
   applyTheme(savedTheme, false);
@@ -337,11 +365,90 @@
   var termPanel = document.getElementById('termPanel');
   var termToggleBtn = document.getElementById('termToggleBtn');
   var termCloseBtn = document.getElementById('termCloseBtn');
+  var termTooltip = document.getElementById('termTooltip');
+  var termTooltipClose = document.getElementById('termTooltipClose');
+  var termResizeHandle = document.getElementById('termResizeHandle');
   var termOut = document.getElementById('termOut');
   var termBodyTerminal = document.getElementById('termBodyTerminal');
   var termBodyProblems = document.getElementById('termBodyProblems');
   var termTabs = document.querySelectorAll('.term-tab');
   var buildRan = false;
+
+  // ---------- Slideable & Resizable Terminal ----------
+  var isResizingTerm = false;
+  var startY = 0;
+  var startHeight = 0;
+
+  function onTermPointerDown(e){
+    isResizingTerm = true;
+    startY = e.clientY || (e.touches && e.touches[0].clientY);
+    startHeight = termPanel.getBoundingClientRect().height;
+    termPanel.classList.add('resizing');
+    document.body.style.cursor = 'ns-resize';
+    document.body.style.userSelect = 'none';
+  }
+
+  function onTermPointerMove(e){
+    if(!isResizingTerm) return;
+    var clientY = e.clientY || (e.touches && e.touches[0].clientY);
+    if(clientY === undefined) return;
+    var deltaY = startY - clientY;
+    var maxH = window.innerHeight * 0.85;
+    var newHeight = Math.max(100, Math.min(maxH, startHeight + deltaY));
+    termPanel.style.height = newHeight + 'px';
+  }
+
+  function onTermPointerUp(){
+    if(!isResizingTerm) return;
+    isResizingTerm = false;
+    termPanel.classList.remove('resizing');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+  }
+
+  if(termResizeHandle){
+    termResizeHandle.addEventListener('mousedown', onTermPointerDown);
+    termResizeHandle.addEventListener('touchstart', onTermPointerDown, {passive: true});
+    window.addEventListener('mousemove', onTermPointerMove);
+    window.addEventListener('touchmove', onTermPointerMove, {passive: true});
+    window.addEventListener('mouseup', onTermPointerUp);
+    window.addEventListener('touchend', onTermPointerUp);
+
+    // Double click handle to toggle expanded height
+    termResizeHandle.addEventListener('dblclick', function(){
+      var currentH = termPanel.getBoundingClientRect().height;
+      if(currentH > 320){
+        termPanel.style.height = '220px';
+      } else {
+        termPanel.style.height = Math.min(480, Math.round(window.innerHeight * 0.7)) + 'px';
+      }
+    });
+  }
+
+  function hideTermTooltip(){
+    if(termTooltip){
+      termTooltip.classList.remove('visible');
+      if(termToggleBtn) termToggleBtn.classList.remove('has-tooltip');
+    }
+  }
+
+  // Show terminal tooltip popup automatically on load after theme tooltip
+  setTimeout(function(){
+    if(termTooltip){
+      termTooltip.classList.add('visible');
+      if(termToggleBtn) termToggleBtn.classList.add('has-tooltip');
+    }
+  }, 800);
+
+  // Auto-hide after 9 seconds of inactivity
+  setTimeout(hideTermTooltip, 9300);
+
+  if(termTooltipClose){
+    termTooltipClose.addEventListener('click', function(e){
+      e.stopPropagation();
+      hideTermTooltip();
+    });
+  }
 
   var buildLines = [
     { text: '> compiling 4+ years of experience...', cls: '' },
@@ -379,12 +486,14 @@
   }
 
   function openTermPanel(){
+    hideTermTooltip();
     termPanel.classList.add('open');
     runBuildEasterEgg();
   }
   function closeTermPanel(){ termPanel.classList.remove('open'); }
 
   if(termToggleBtn) termToggleBtn.addEventListener('click', function(){
+    hideTermTooltip();
     termPanel.classList.contains('open') ? closeTermPanel() : openTermPanel();
   });
   if(termCloseBtn) termCloseBtn.addEventListener('click', closeTermPanel);
@@ -402,6 +511,7 @@
   document.addEventListener('keydown', function(e){
     if(e.key === '`' && (e.ctrlKey || e.metaKey)){
       e.preventDefault();
+      hideTermTooltip();
       termPanel.classList.contains('open') ? closeTermPanel() : openTermPanel();
     }
   });

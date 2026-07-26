@@ -24,7 +24,15 @@
   <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle file explorer">☰</button>
   <div class="titlebar-name"><b>piyush-anand</b>/portfolio</div>
   <div class="titlebar-spacer"></div>
-  <button class="theme-btn" id="themeOpenBtn"><span class="theme-dot"></span><span id="themeBtnLabel">Aurora</span></button>
+  <div class="theme-wrapper">
+    <button class="theme-btn" id="themeOpenBtn"><span class="theme-dot"></span><span id="themeBtnLabel">Aurora</span></button>
+    <div class="theme-tooltip" id="themeTooltip" role="tooltip">
+      <span class="theme-tooltip-arrow"></span>
+      <span class="theme-tooltip-icon">🎨</span>
+      <span class="theme-tooltip-text">Switch theme here!</span>
+      <button class="theme-tooltip-close" id="themeTooltipClose" aria-label="Close tooltip">✕</button>
+    </div>
+  </div>
   <button class="palette-btn" id="paletteOpenBtn"><span>Go to section</span><kbd>Ctrl K</kbd></button>
 </div>
 <div class="scroll-progress" id="scrollProgress"></div>
@@ -325,6 +333,7 @@
 </div>
 
 <div class="term-panel" id="termPanel">
+  <div class="term-resize-handle" id="termResizeHandle" title="Drag to resize terminal"></div>
   <div class="term-tabs">
     <button class="term-tab active" data-tab="terminal">TERMINAL</button>
     <button class="term-tab" data-tab="problems">PROBLEMS</button>
@@ -344,7 +353,15 @@
   <div class="segs">
     <span class="seg">⎇ main</span>
     <span class="seg seg-hide-mobile">✔ 0</span>
-    <button class="seg seg-btn" id="termToggleBtn">⌥ Terminal</button>
+    <div class="term-wrapper">
+      <button class="seg seg-btn" id="termToggleBtn">⌥ Terminal</button>
+      <div class="term-tooltip" id="termTooltip" role="tooltip">
+        <span class="term-tooltip-arrow"></span>
+        <span class="term-tooltip-icon">💻</span>
+        <span class="term-tooltip-text">Toggle terminal here!</span>
+        <button class="term-tooltip-close" id="termTooltipClose" aria-label="Close tooltip">✕</button>
+      </div>
+    </div>
     <span class="seg" id="status-current">index.html</span>
   </div>
   <div class="segs">
