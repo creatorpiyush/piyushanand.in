@@ -453,9 +453,11 @@
   var buildLines = [
     { text: '> compiling 4+ years of experience...', cls: '' },
     { text: '  ✔ done in 0.4s', cls: 'ok' },
-    { text: '> bundling 5,000,000+ users (Flutter loyalty app)...', cls: '' },
+    { text: '> bundling 36,000,000+ installs (Flutter loyalty app)...', cls: '' },
     { text: '  ✔ done in 0.6s', cls: 'ok' },
-    { text: '> optimizing RAG pipeline on Azure OpenAI...', cls: '' },
+    { text: '> deploying MCP server on OpenShift...', cls: '' },
+    { text: '  ✔ done in 0.3s', cls: 'ok' },
+    { text: '> configuring n8n AI workflows & RAG pipelines...', cls: '' },
     { text: '  ✔ done in 0.3s', cls: 'ok' },
     { text: '> running CI/CD, cutting release effort by 60%...', cls: '' },
     { text: '  ✔ done in 0.2s', cls: 'ok' },
