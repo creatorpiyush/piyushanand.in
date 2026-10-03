@@ -93,16 +93,58 @@
   mobileToggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
   links.forEach(function(l){ l.addEventListener('click', function(){ sidebar.classList.remove('open'); }); });
 
+  // Contact details are assembled at runtime so they aren't plain text in the HTML
+  var email = '';
+  document.querySelectorAll('[data-obf="email"]').forEach(function(el){
+    email = el.getAttribute('data-u') + '@' + el.getAttribute('data-d');
+    el.textContent = email;
+  });
+  document.querySelectorAll('[data-obf="phone"]').forEach(function(el){
+    el.textContent = el.getAttribute('data-p').split('').reverse().join('');
+  });
+  if(email){
+    document.querySelectorAll('[data-obf-copy="email"]').forEach(function(el){ el.setAttribute('data-copy', email); });
+    document.querySelectorAll('[data-obf-mailto="email"]').forEach(function(el){ el.href = 'mailto:' + email; });
+  }
+
+  // Activity bar badges reflect the page content
+  var scmBadge = document.getElementById('scmBadge');
+  var commitCount = document.querySelectorAll('#experience .commit').length;
+  if(scmBadge && commitCount){
+    scmBadge.textContent = commitCount;
+    var scmIconBtn = document.getElementById('scmIconBtn');
+    if(scmIconBtn) scmIconBtn.setAttribute('data-tip', 'Source Control · ' + commitCount + ' commits');
+  }
+  var skillsBadge = document.getElementById('skillsBadge');
+  var skillKeys = document.querySelectorAll('#skills .code-block .k').length;
+  if(skillsBadge && skillKeys) skillsBadge.textContent = skillKeys;
+
   // Copy email button
   document.querySelectorAll('.copy-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var val = btn.getAttribute('data-copy');
       var restore = btn.textContent;
-      if(navigator.clipboard){
-        navigator.clipboard.writeText(val).then(function(){
-          btn.textContent = 'copied!';
-          setTimeout(function(){ btn.textContent = restore; }, 1600);
-        });
+      function flash(msg){
+        btn.textContent = msg;
+        setTimeout(function(){ btn.textContent = restore; }, 1600);
+      }
+      function legacyCopy(){
+        var ta = document.createElement('textarea');
+        ta.value = val;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = false;
+        try{ ok = document.execCommand('copy'); }catch(e){}
+        document.body.removeChild(ta);
+        flash(ok ? 'copied!' : 'copy failed');
+      }
+      if(navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(val).then(function(){ flash('copied!'); }, legacyCopy);
+      } else {
+        legacyCopy();
       }
     });
   });
@@ -124,6 +166,7 @@
 
   function renderResults(){
     results.innerHTML = '';
+    input.removeAttribute('aria-activedescendant');
     if(filtered.length === 0){
       results.innerHTML = '<div class="palette-empty">No matching files</div>';
       return;
@@ -131,6 +174,10 @@
     filtered.forEach(function(item, idx){
       var div = document.createElement('div');
       div.className = 'palette-item' + (idx === selIndex ? ' sel' : '');
+      div.id = 'palette-opt-' + idx;
+      div.setAttribute('role', 'option');
+      div.setAttribute('aria-selected', idx === selIndex ? 'true' : 'false');
+      if(idx === selIndex) input.setAttribute('aria-activedescendant', div.id);
       div.innerHTML = '<span class="icon">›</span><span>' + item.label + '</span><span style="margin-left:auto;color:var(--text-faint);font-size:11px;">' + item.sub + '</span>';
       div.addEventListener('click', function(){ jumpTo(item.href); });
       results.appendChild(div);
@@ -163,7 +210,7 @@
       closePalette();
       closeThemePicker();
     } else if(overlay.classList.contains('open')){
-      if(e.key === 'ArrowDown'){ e.preventDefault(); selIndex = Math.min(selIndex+1, filtered.length-1); renderResults(); }
+      if(e.key === 'ArrowDown'){ e.preventDefault(); selIndex = Math.max(0, Math.min(selIndex+1, filtered.length-1)); renderResults(); }
       else if(e.key === 'ArrowUp'){ e.preventDefault(); selIndex = Math.max(selIndex-1, 0); renderResults(); }
       else if(e.key === 'Enter'){ e.preventDefault(); if(filtered[selIndex]) jumpTo(filtered[selIndex].href); }
     }
@@ -200,9 +247,12 @@
     }
   }
 
-  // Show tooltip popup automatically whenever anyone opens the website
+  // Hint tooltips only appear on a visitor's first visit
+  var hintsSeen = false;
+  try{ hintsSeen = localStorage.getItem('portfolio-hints-seen') === '1'; localStorage.setItem('portfolio-hints-seen', '1'); }catch(e){}
+
   setTimeout(function(){
-    if(themeTooltip){
+    if(themeTooltip && !hintsSeen){
       themeTooltip.classList.add('visible');
       if(themeOpenBtn) themeOpenBtn.classList.add('has-tooltip');
     }
@@ -231,8 +281,11 @@
     themeResults.innerHTML = '';
     themes.forEach(function(t){
       var active = (document.documentElement.getAttribute('data-theme') || 'aurora') === t.key;
-      var div = document.createElement('div');
+      var div = document.createElement('button');
+      div.type = 'button';
       div.className = 'theme-item' + (active ? ' sel' : '');
+      div.setAttribute('role', 'option');
+      div.setAttribute('aria-selected', active ? 'true' : 'false');
       var swatch = t.colors.map(function(c){ return '<i style="background:'+c+'"></i>'; }).join('');
       div.innerHTML = '<span class="theme-swatch">'+swatch+'</span><span class="tname">'+t.name+'</span><span class="tsub">'+t.sub+'</span><span class="tcheck">'+(active?'✓':'')+'</span>';
       div.addEventListener('click', function(){ applyTheme(t.key, true); closeThemePicker(); });
@@ -240,8 +293,33 @@
     });
   }
 
-  function openThemePicker(){ hideThemeTooltip(); themeOverlay.classList.add('open'); renderThemeResults(); }
-  function closeThemePicker(){ themeOverlay.classList.remove('open'); }
+  var themeReturnFocus = null;
+  function openThemePicker(){
+    hideThemeTooltip();
+    themeReturnFocus = document.activeElement;
+    themeOverlay.classList.add('open');
+    renderThemeResults();
+    var sel = themeResults.querySelector('.theme-item.sel') || themeResults.querySelector('.theme-item');
+    if(sel) setTimeout(function(){ sel.focus(); }, 10);
+  }
+  function closeThemePicker(){
+    if(!themeOverlay.classList.contains('open')) return;
+    themeOverlay.classList.remove('open');
+    if(themeReturnFocus && themeReturnFocus.focus) themeReturnFocus.focus();
+    themeReturnFocus = null;
+  }
+
+  themeResults.addEventListener('keydown', function(e){
+    if(e.key !== 'ArrowDown' && e.key !== 'ArrowUp' && e.key !== 'Home' && e.key !== 'End') return;
+    var items = Array.prototype.slice.call(themeResults.querySelectorAll('.theme-item'));
+    var idx = items.indexOf(document.activeElement);
+    if(e.key === 'ArrowDown') idx = Math.min(idx + 1, items.length - 1);
+    else if(e.key === 'ArrowUp') idx = Math.max(idx - 1, 0);
+    else if(e.key === 'Home') idx = 0;
+    else idx = items.length - 1;
+    e.preventDefault();
+    items[idx].focus();
+  });
 
   if(themeOpenBtn) themeOpenBtn.addEventListener('click', openThemePicker);
   themeOverlay.addEventListener('click', function(e){ if(e.target === themeOverlay) closeThemePicker(); });
@@ -381,7 +459,8 @@
 
   function onTermPointerDown(e){
     isResizingTerm = true;
-    startY = e.clientY || (e.touches && e.touches[0].clientY);
+    startY = e.clientY;
+    if(termResizeHandle.setPointerCapture) termResizeHandle.setPointerCapture(e.pointerId);
     startHeight = termPanel.getBoundingClientRect().height;
     termPanel.classList.add('resizing');
     document.body.style.cursor = 'ns-resize';
@@ -390,9 +469,8 @@
 
   function onTermPointerMove(e){
     if(!isResizingTerm) return;
-    var clientY = e.clientY || (e.touches && e.touches[0].clientY);
-    if(clientY === undefined) return;
-    var deltaY = startY - clientY;
+    e.preventDefault();
+    var deltaY = startY - e.clientY;
     var maxH = window.innerHeight * 0.85;
     var newHeight = Math.max(100, Math.min(maxH, startHeight + deltaY));
     termPanel.style.height = newHeight + 'px';
@@ -407,12 +485,10 @@
   }
 
   if(termResizeHandle){
-    termResizeHandle.addEventListener('mousedown', onTermPointerDown);
-    termResizeHandle.addEventListener('touchstart', onTermPointerDown, {passive: true});
-    window.addEventListener('mousemove', onTermPointerMove);
-    window.addEventListener('touchmove', onTermPointerMove, {passive: true});
-    window.addEventListener('mouseup', onTermPointerUp);
-    window.addEventListener('touchend', onTermPointerUp);
+    termResizeHandle.addEventListener('pointerdown', onTermPointerDown);
+    termResizeHandle.addEventListener('pointermove', onTermPointerMove);
+    termResizeHandle.addEventListener('pointerup', onTermPointerUp);
+    termResizeHandle.addEventListener('pointercancel', onTermPointerUp);
 
     // Double click handle to toggle expanded height
     termResizeHandle.addEventListener('dblclick', function(){
@@ -432,9 +508,9 @@
     }
   }
 
-  // Show terminal tooltip popup automatically on load after theme tooltip
+  // Show terminal tooltip popup on first visit, after the theme tooltip
   setTimeout(function(){
-    if(termTooltip){
+    if(termTooltip && !hintsSeen){
       termTooltip.classList.add('visible');
       if(termToggleBtn) termToggleBtn.classList.add('has-tooltip');
     }
