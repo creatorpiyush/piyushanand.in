@@ -27,6 +27,7 @@
     --progress-h: 2px;
     --breadcrumb-h: 30px;
     --radius: 6px;
+    --grid-line: rgba(255,255,255,0.025);
   }
 
   /* ---------- Theme variants (VS Code inspired) ---------- */
@@ -53,6 +54,7 @@
     --surface-hover:#E4E7EB; --border:#D7DCE1; --border-soft:#E9ECF0;
     --text:#1F2328; --text-dim:#4B5563; --text-faint:#6B7580;
     --teal:#0F8C82; --teal-dim:#0B6B63; --amber:#9A6700; --rose:#CF222E; --violet:#6639BA; --sage:#1A7F37; --sky:#0969DA;
+    --grid-line: rgba(0,0,0,0.04);
   }
   html{ transition:background-color .35s ease; }
   body, .titlebar, .sidebar, .surface, .section-panel, .terminal, .project-card, .file-tab, .btn, .tag{
@@ -68,10 +70,10 @@
 
   body{
     background:
-      radial-gradient(ellipse 900px 500px at 15% 0%, rgba(79,209,197,0.09), transparent 60%),
-      radial-gradient(ellipse 800px 500px at 85% 15%, rgba(163,153,240,0.07), transparent 60%),
-      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+      radial-gradient(ellipse 900px 500px at 15% 0%, color-mix(in srgb, var(--teal) 9%, transparent), transparent 60%),
+      radial-gradient(ellipse 800px 500px at 85% 15%, color-mix(in srgb, var(--violet) 7%, transparent), transparent 60%),
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px),
       var(--bg);
     background-size: auto, auto, 34px 34px, 34px 34px, auto;
     background-attachment: fixed, fixed, fixed, fixed, fixed;
@@ -442,8 +444,8 @@
     background:var(--surface); color:var(--text); transition:border-color .15s ease, background .15s ease, transform .15s ease, box-shadow .15s ease;
   }
   .btn:hover{ text-decoration:none; border-color:var(--teal-dim); transform:translateY(-2px); box-shadow:0 8px 24px -8px rgba(79,209,197,0.35); }
-  .btn.primary{ background:var(--teal); color:#062A27; border-color:var(--teal); font-weight:600; box-shadow:0 8px 24px -10px rgba(79,209,197,0.5); }
-  .btn.primary:hover{ background:#63e0d4; box-shadow:0 10px 30px -8px rgba(79,209,197,0.6); }
+  .btn.primary{ background:var(--teal); color:var(--bg); border-color:var(--teal); font-weight:600; box-shadow:0 8px 24px -10px rgba(79,209,197,0.5); }
+  .btn.primary:hover{ background:color-mix(in srgb, var(--teal) 85%, var(--text)); box-shadow:0 10px 30px -8px rgba(79,209,197,0.6); }
 
   /* ---------- About / README ---------- */
   .readme-meta{ font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint); margin-bottom:18px; }
@@ -542,6 +544,7 @@
     right: 0;
     height: 10px;
     cursor: ns-resize;
+    touch-action: none;
     z-index: 10;
     transition: background 0.15s ease, box-shadow 0.15s ease;
   }
@@ -702,8 +705,8 @@
   .palette-item.sel .icon{ color:var(--teal); }
   .palette-empty{ padding:16px; font-family:var(--font-mono); font-size:12.5px; color:var(--text-faint); text-align:center; }
   .palette-header{ font-family:var(--font-mono); font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.06em; padding:12px 16px 8px; border-bottom:1px solid var(--border); background:var(--bg-elevated); }
-  .theme-item{ display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:5px; cursor:pointer; }
-  .theme-item:hover, .theme-item.sel{ background:var(--surface-hover); }
+  .theme-item{ display:flex; align-items:center; gap:12px; width:100%; padding:10px 12px; border:none; border-radius:5px; background:none; color:inherit; font:inherit; text-align:left; cursor:pointer; }
+  .theme-item:hover, .theme-item.sel, .theme-item:focus-visible{ background:var(--surface-hover); }
   .theme-swatch{ display:flex; gap:3px; flex-shrink:0; }
   .theme-swatch i{ width:9px; height:18px; border-radius:2px; display:block; }
   .theme-item .tname{ font-family:var(--font-mono); font-size:13px; color:var(--text); }

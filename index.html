@@ -8,7 +8,14 @@
 <meta property="og:title" content="Piyush Anand - Software Engineer">
 <meta property="og:description" content="Building AI/RAG systems, Flutter apps, and cloud-native pipelines at Nagarro. 4+ years, 36M+ installs shipped, MCP servers deployed on OpenShift.">
 <meta property="og:type" content="website">
-<meta name="twitter:card" content="summary">
+<meta property="og:url" content="https://piyushanand.in/">
+<meta property="og:image" content="https://piyushanand.in/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Piyush Anand - Software Engineer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://piyushanand.in/og-image.png">
+<link rel="canonical" href="https://piyushanand.in/">
 <meta name="twitter:title" content="Piyush Anand - Software Engineer">
 <meta name="twitter:description" content="Building AI/RAG systems, Flutter apps, and cloud-native pipelines at Nagarro. 4+ years, 36M+ installs shipped, MCP servers deployed on OpenShift.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A0E14'/%3E%3Ctext x='50' y='68' font-family='monospace' font-size='58' font-weight='700' fill='%234FD1C5' text-anchor='middle'%3E%3E_%3C/text%3E%3C/svg%3E">
@@ -16,6 +23,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script>try{var t=localStorage.getItem('portfolio-theme');if(t&&t!=='aurora')document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
 </head>
 <body>
 
@@ -51,16 +59,16 @@
       <button class="ab-icon" id="searchIconBtn" data-tip="Search · Ctrl K" aria-label="Search">
         <svg viewBox="0 0 24 24" width="19" height="19"><path fill="currentColor" d="M10 2a8 8 0 105.29 14.29l5.2 5.2 1.42-1.41-5.2-5.2A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/></svg>
       </button>
-      <button class="ab-icon" data-tip="Source Control · 5 commits" data-goto="#experience" aria-label="Source Control">
+      <button class="ab-icon" id="scmIconBtn" data-tip="Source Control · 5 commits" data-goto="#experience" aria-label="Source Control">
         <svg viewBox="0 0 24 24" width="19" height="19"><path fill="currentColor" d="M17 3a3 3 0 00-1 5.83v6.34a3 3 0 101.98.03V15a2 2 0 002 2h1a3 3 0 10-1-.17V17a1 1 0 01-1 1h-1a1 1 0 01-1-1V8.83A3 3 0 0017 3zm0 2a1 1 0 110 2 1 1 0 010-2zm0 12.17a1 1 0 110 2 1 1 0 010-2zM7 3a3 3 0 100 6 3 3 0 000-6zm0 2a1 1 0 110 2 1 1 0 010-2zm0 10a3 3 0 100 6 3 3 0 000-6zm0 2a1 1 0 110 2 1 1 0 010-2z"/></svg>
-        <span class="ab-badge">5</span>
+        <span class="ab-badge" id="scmBadge">5</span>
       </button>
       <button class="ab-icon" data-tip="Run and Debug · projects" data-goto="#projects" aria-label="Run and Debug">
         <svg viewBox="0 0 24 24" width="19" height="19"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
       </button>
       <button class="ab-icon" data-tip="Extensions · skills.json" data-goto="#skills" aria-label="Extensions">
         <svg viewBox="0 0 24 24" width="19" height="19"><path fill="currentColor" d="M20.5 11H19V7.5A1.5 1.5 0 0017.5 6H14V4.5a2.5 2.5 0 00-5 0V6H5.5A1.5 1.5 0 004 7.5V11h1.5a2.5 2.5 0 010 5H4v3.5A1.5 1.5 0 005.5 21H9v-1.5a2.5 2.5 0 015 0V21h3.5a1.5 1.5 0 001.5-1.5V16h-1.5a2.5 2.5 0 010-5H20.5z"/></svg>
-        <span class="ab-badge">7</span>
+        <span class="ab-badge" id="skillsBadge">6</span>
       </button>
     </div>
     <div class="ab-bottom">
@@ -132,7 +140,7 @@
       <div class="section-panel reveal">
         <div class="readme-meta">README preview · rendered</div>
         <p>I'm a software engineer at <strong>Nagarro</strong>, where I've spent the last four years growing from Trainee to <strong>Associate Staff Engineer</strong> - mostly by chasing problems that sit at the edge of what I already know how to do.</p>
-        <p>These days that means leading <strong>AI chapter development</strong> for a client engagement: I've architected an <strong>MCP (Model Context Protocol)</strong> server exposing tools and prompts over their internal ecosystem — built in <strong>Node.js/TypeScript</strong>, deployed on <strong>OpenShift</strong> — and delivered low-code AI automation on <strong>n8n</strong>, including an AI-assisted code-review tool and an on-prem GitLab integration, to fit their on-prem-only infrastructure requirements. Before that, I spent a good stretch building a <strong>Flutter loyalty app for a German airline</strong> now at <strong>36M+ installs and 7M+ active users</strong>, and automating the CI/CD pipelines that got our releases out faster and with less manual QA.</p>
+        <p>These days that means building <strong>AI tooling</strong> for a client engagement: I've architected an <strong>MCP (Model Context Protocol)</strong> server exposing tools and prompts over their internal ecosystem — built in <strong>Node.js/TypeScript</strong>, deployed on <strong>OpenShift</strong> — and delivered low-code AI automation on <strong>n8n</strong>, including an AI-assisted code-review tool and an on-prem GitLab integration, to fit their on-prem-only infrastructure requirements. Before that, I spent a good stretch building a <strong>Flutter loyalty app for a German airline</strong> now at <strong>36M+ installs and 7M+ active users</strong>, and automating the CI/CD pipelines that got our releases out faster and with less manual QA.</p>
         <p>I like systems that are both correct and pleasant to operate - pipelines that don't page anyone at 2am, mobile apps that feel instant, and AI features that fail gracefully instead of confidently making things up. Outside of client work, I've published research on ML-based COVID-19 detection, open-sourced <strong>verihook</strong> and <strong>raglite-toolkit</strong> across npm and PyPI, and I keep a running list of side projects, from offline LLM apps to real-time multiplayer games.</p>
         <div class="stat-row">
           <div class="stat"><b data-count="4" data-suffix="+">0</b><span>Years at Nagarro</span></div>
@@ -155,7 +163,7 @@
               <span class="commit-hash">a4f2c9d</span>
               <span class="commit-tag">v4.0.0</span>
               <span class="commit-title">Associate Staff Engineer</span>
-              <span class="commit-tag" style="background:var(--sage); color:#08260F;">HEAD</span>
+              <span class="commit-tag" style="background:var(--sage);">HEAD</span>
             </div>
             <div class="commit-meta">Nagarro · Jun 2026 - Present</div>
             <ul class="commit-body">
@@ -322,8 +330,8 @@
       <div class="section-panel reveal">
         <div class="shell-line">
           <span class="prompt">$</span><span class="cmd">echo $EMAIL</span>
-          <span class="out">ipiyushanand24@gmail.com</span>
-          <button class="copy-btn" data-copy="ipiyushanand24@gmail.com">copy</button>
+          <span class="out" data-obf="email" data-u="ipiyushanand24" data-d="gmail.com">[enable JavaScript to view]</span>
+          <button class="copy-btn" data-obf-copy="email">copy</button>
         </div>
         <div class="shell-line">
           <span class="prompt">$</span><span class="cmd">open --linkedin</span>
@@ -335,14 +343,14 @@
         </div>
         <div class="shell-line">
           <span class="prompt">$</span><span class="cmd">phone --mobile</span>
-          <span class="out">+91 99998 48631</span>
+          <span class="out" data-obf="phone" data-p="13684 89999 19+">[enable JavaScript to view]</span>
         </div>
         <div class="shell-line">
           <span class="prompt">$</span><span class="cmd">whereis piyush</span>
           <span class="out">New Delhi, India</span>
         </div>
         <div style="margin-top:22px;">
-          <a class="btn primary" href="mailto:ipiyushanand24@gmail.com">Send an email →</a>
+          <a class="btn primary" href="#contact" data-obf-mailto="email">Send an email →</a>
         </div>
       </div>
     </section>
@@ -395,15 +403,15 @@
 
 <div class="palette-overlay" id="paletteOverlay">
   <div class="palette-box">
-    <input class="palette-input" id="paletteInput" type="text" placeholder="Type a file name to jump to…" autocomplete="off">
-    <div class="palette-results" id="paletteResults"></div>
+    <input class="palette-input" id="paletteInput" type="text" placeholder="Type a file name to jump to…" autocomplete="off" role="combobox" aria-expanded="true" aria-controls="paletteResults" aria-label="Go to section">
+    <div class="palette-results" id="paletteResults" role="listbox"></div>
   </div>
 </div>
 
 <div class="palette-overlay" id="themeOverlay">
   <div class="palette-box">
     <div class="palette-header">Color Theme - Preview and select</div>
-    <div class="palette-results" id="themeResults"></div>
+    <div class="palette-results" id="themeResults" role="listbox" aria-label="Color theme"></div>
   </div>
 </div>
 
