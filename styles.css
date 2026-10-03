@@ -356,8 +356,9 @@
     font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim);
     background:var(--surface); border:1px solid var(--border);
     padding:6px 12px; border-radius:5px 5px 0 0; border-bottom:none;
-    margin-bottom:0; position:relative;
+    margin-bottom:0; position:relative; font-weight:400;
   }
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
   .file-tab::after{ content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--type-color, var(--teal)); border-radius:2px 2px 0 0; }
   .file-tab .dot{ width:6px; height:6px; border-radius:50%; background:var(--type-color, var(--sage)); box-shadow:0 0 8px var(--type-color, var(--sage)); }
   .file-tab.t-sh{ --type-color: var(--sage); }
