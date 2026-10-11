@@ -1,0 +1,84 @@
+% Resume variant: Backend Engineer roles
+\documentclass[a4paper,10pt]{article}
+
+\input{preamble}
+
+\begin{document}
+
+\resumeHeader
+
+% Summary
+\section{Professional Summary}
+\small{Backend Engineer with 4+ years building services, integrations, and delivery pipelines in Node.js and TypeScript. Architected an MCP server deployed on OpenShift, built Jenkins/Docker CI/CD that cut release-cycle effort by 60\%, and supported a mobile platform with 36M+ installs. Author of 3 published open-source libraries across npm, PyPI, and pub.dev. Recognized as "Brightest Mind" by Business Unit; ranked top 5\% for performance across 4 consecutive review cycles.}
+
+% Experience
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Nagarro Software Pvt. Ltd.}{Gurugram, India}
+      {Associate Staff Engineer (prev. Senior SWE, Engineer, Trainee)}{Jul 2022 -- Present}
+      \resumeItemListStart
+        \resumeItem{Promoted 4 times in 4 years -- Trainee $\rightarrow$ Associate Engineer $\rightarrow$ Engineer $\rightarrow$ Senior Software Engineer $\rightarrow$ \textbf{Associate Staff Engineer} (Jun 2026)}
+        \resumeItem{Architected an \textbf{MCP (Model Context Protocol) server} in \textbf{Node.js/TypeScript} exposing tools and prompts over a client's internal ecosystem, containerized and deployed on \textbf{OpenShift}}
+        \resumeItem{Built \textbf{CI/CD pipelines} (\textbf{Jenkins, Docker}) for PROD/BETA releases and automated \textbf{BDD/Gherkin} regression testing, cutting release-cycle effort by \textbf{60\%} and removing manual QA overhead}
+        \resumeItem{Integrated on-prem \textbf{GitLab} with \textbf{n8n} workflows, including an AI-assisted code-review tool, within on-prem-only infrastructure constraints}
+        \resumeItem{Architected \textbf{RAG systems} on \textbf{Azure OpenAI}, local models, and FlowiseAI as lead of the Business Unit's AI chapter}
+        \resumeItem{Engineered a \textbf{Flutter} mobile app for a German airline's loyalty platform, reaching \textbf{36M+ installs} and a \textbf{7M+ active user} base}
+        \resumeItem{Recognized as \textbf{"Brightest Mind"} by Business Unit; sustained \textbf{top 5\%} performance rating across \textbf{4 consecutive} review cycles}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {CEOITBOX}{Delhi, India}
+      {Node.js Development Intern}{Feb 2022 -- May 2022}
+      \resumeItemListStart
+        \resumeItem{Built server-side applications with \textbf{Node.js}, \textbf{MySQL}, and \textbf{MongoDB}}
+        \resumeItem{Managed production deployments on DigitalOcean and Contabo, maintaining \textbf{99\% uptime}}
+        \resumeItem{\textit{Earlier: Web Development Intern, iDigizen \& Gosensing (Nov 2020 -- Oct 2021)}}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% Technical Skills
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: TypeScript/JavaScript, Python, Java, Dart, SQL, C++} \\
+     \textbf{Backend}{: Node.js, Express.js, FastAPI, Spring Boot, Socket.io, REST APIs, Microservices} \\
+     \textbf{Cloud \& DevOps}{: Docker, OpenShift, Jenkins, CI/CD, Azure, AWS, SonarQube, Git} \\
+     \textbf{Databases}{: PostgreSQL, MongoDB, MySQL} \\
+     \textbf{AI Integration}{: MCP, RAG, Azure OpenAI, LangChain, n8n} \\
+     \textbf{Practices}{: MVC, OOP, BDD/Gherkin, Agile/Scrum}
+    }}
+ \end{itemize}
+
+% Projects
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {verihook -- Published Package (npm)}{\href{https://www.npmjs.com/package/verihook}{npm} $|$ \href{https://github.com/creatorpiyush/verihook}{GitHub}}
+      {TypeScript, Node.js, HMAC/Ed25519, Edge Runtimes}{}
+      \resumeItemListStart
+        \resumeItem{Authored a universal, typed, zero-dependency webhook verification and signing library supporting \textbf{40+ providers} (Stripe, GitHub, Shopify, Razorpay, Adyen, and more) with HMAC and Ed25519 signatures, plus adapters for Express, Fastify, NestJS, Next.js, Hono, and AWS Lambda}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {raglite-toolkit -- Published Package (npm + PyPI)}{\href{https://www.npmjs.com/package/raglite-toolkit}{npm} $|$ \href{https://pypi.org/project/raglite-toolkit/}{PyPI}}
+      {TypeScript, Node.js, Python, FastAPI}{}
+      \resumeItemListStart
+        \resumeItem{Built a toolkit that serves semantic search and Q\&A over documents as REST APIs -- shipped as a TypeScript/Node.js package and a feature-complete Python port}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {arch\_guard -- Published Package (pub.dev)}{\href{https://pub.dev/packages/arch_guard}{pub.dev} $|$ \href{https://github.com/creatorpiyush/arch_guard}{GitHub}}
+      {Dart, CLI, Static Analysis}{}
+      \resumeItemListStart
+        \resumeItem{Built a CLI tool and library for static architecture analysis -- enforces Clean Architecture layer rules, measures circular dependencies, and renders dependency graphs}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+\input{common}
+
+\end{document}

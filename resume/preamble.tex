@@ -1,0 +1,82 @@
+% Shared packages, layout, and macros for all resume variants
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{geometry}
+
+% Hyperlink styling - change hidelinks to colorlinks for underlines
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+}
+
+\geometry{
+    a4paper,
+    left=0.7in,
+    right=0.7in,
+    top=0.35in,
+    bottom=0.3in,
+    footskip=8pt
+}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \textbf{#1} \hfill #2 \\
+    \textit{\small#3} \hfill \textit{\small #4} \\
+    \vspace{-6pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}\setlength{\itemsep}{-2pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+% Shared contact header
+\newcommand{\resumeHeader}{
+% Header
+\begin{center}
+    \textbf{\Huge \scshape Piyush Anand} \\ \vspace{1pt}
+    \small New Delhi, India $|$ 
+    \href{tel:9999848631}{+91-9999848631} $|$ 
+    \href{mailto:piyushanand.1221@gmail.com}{piyushanand.1221@gmail.com} \\
+    \href{https://www.linkedin.com/in/creatorpiyush}{linkedin.com/in/creatorpiyush} $|$
+    \href{https://www.piyushanand.in}{piyushanand.in} $|$
+    \href{https://github.com/creatorpiyush}{github.com/creatorpiyush}
+\end{center}
+}

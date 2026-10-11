@@ -1,0 +1,84 @@
+% Resume variant: Full-Stack Engineer roles
+\documentclass[a4paper,10pt]{article}
+
+\input{preamble}
+
+\begin{document}
+
+\resumeHeader
+
+% Summary
+\section{Professional Summary}
+\small{Full-Stack Engineer with 4+ years shipping products end to end -- from a Flutter mobile app with 36M+ installs and 7M+ active users, to Node.js/TypeScript services on OpenShift, to the CI/CD pipelines that release them. Comfortable across Flutter, React, Angular, Node.js, and SQL/NoSQL databases. Author of 3 published open-source packages across npm, PyPI, and pub.dev. Recognized as "Brightest Mind" by Business Unit; ranked top 5\% for performance across 4 consecutive review cycles.}
+
+% Experience
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Nagarro Software Pvt. Ltd.}{Gurugram, India}
+      {Associate Staff Engineer (prev. Senior SWE, Engineer, Trainee)}{Jul 2022 -- Present}
+      \resumeItemListStart
+        \resumeItem{Promoted 4 times in 4 years -- Trainee $\rightarrow$ Associate Engineer $\rightarrow$ Engineer $\rightarrow$ Senior Software Engineer $\rightarrow$ \textbf{Associate Staff Engineer} (Jun 2026)}
+        \resumeItem{Engineered a \textbf{Flutter} mobile app for a German airline's loyalty platform, reaching \textbf{36M+ installs} and a \textbf{7M+ active user} base across iOS and Android}
+        \resumeItem{Built \textbf{CI/CD pipelines} (Jenkins, Docker) for PROD/BETA releases and automated \textbf{BDD/Gherkin} regression testing, cutting release-cycle effort by \textbf{60\%}}
+        \resumeItem{Architected an \textbf{MCP (Model Context Protocol) server} in \textbf{Node.js/TypeScript} over a client's internal ecosystem, deployed on \textbf{OpenShift}}
+        \resumeItem{Delivered \textbf{n8n} automation under on-prem-only constraints, including an AI-assisted code-review tool and an on-prem \textbf{GitLab} integration}
+        \resumeItem{Led \textbf{AI chapter development} for the Business Unit: built \textbf{RAG systems} on Azure OpenAI and FlowiseAI, and ran AI training workshops for engineering teams}
+        \resumeItem{Recognized as \textbf{"Brightest Mind"} by Business Unit; sustained \textbf{top 5\%} performance rating across \textbf{4 consecutive} review cycles}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {CEOITBOX}{Delhi, India}
+      {Node.js Development Intern}{Feb 2022 -- May 2022}
+      \resumeItemListStart
+        \resumeItem{Built full-stack web applications with \textbf{Node.js}, \textbf{MySQL}, \textbf{MongoDB}, and Handlebars, shipping responsive, production-ready UIs}
+        \resumeItem{Managed production deployments on DigitalOcean and Contabo, maintaining \textbf{99\% uptime}}
+        \resumeItem{\textit{Earlier: Web Development Intern, iDigizen \& Gosensing (Nov 2020 -- Oct 2021) -- built responsive websites and internal tools}}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% Technical Skills
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: TypeScript/JavaScript, Dart, Python, Java, SQL, HTML/CSS} \\
+     \textbf{Frontend \& Mobile}{: Flutter, React.js, Angular} \\
+     \textbf{Backend}{: Node.js, Express.js, FastAPI, Spring Boot, Socket.io, REST APIs} \\
+     \textbf{Cloud \& DevOps}{: Docker, Jenkins, CI/CD, OpenShift, Azure, AWS, Git} \\
+     \textbf{Databases}{: MongoDB, MySQL, PostgreSQL} \\
+     \textbf{AI}{: RAG, MCP, Azure OpenAI, LangChain, n8n}
+    }}
+ \end{itemize}
+
+% Projects
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Draw'N'Guess -- Real-time Multiplayer Game}{}
+      {Node.js, Socket.io, JavaScript}{}
+      \resumeItemListStart
+        \resumeItem{Built an ad-free real-time multiplayer drawing and guessing game -- room creation, live game-state sync, and canvas broadcasting over WebSockets}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {raglite-toolkit -- Published Package (npm + PyPI)}{\href{https://www.npmjs.com/package/raglite-toolkit}{npm} $|$ \href{https://pypi.org/project/raglite-toolkit/}{PyPI}}
+      {TypeScript, Node.js, Python, FastAPI}{}
+      \resumeItemListStart
+        \resumeItem{Built and published a toolkit for semantic search and Q\&A over documents, exposed via REST APIs -- shipped for Node.js and Python}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {arch\_guard -- Published Package (pub.dev)}{\href{https://pub.dev/packages/arch_guard}{pub.dev} $|$ \href{https://github.com/creatorpiyush/arch_guard}{GitHub}}
+      {Dart, CLI, Static Analysis, Clean Architecture}{}
+      \resumeItemListStart
+        \resumeItem{Built a CLI tool and Dart library that enforces Clean Architecture layer rules, measures circular dependencies, and renders dependency graphs}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+\input{common}
+
+\end{document}
