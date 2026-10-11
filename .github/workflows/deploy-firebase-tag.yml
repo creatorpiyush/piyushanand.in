@@ -19,6 +19,10 @@ jobs:
       - name: Stamp sitemap lastmod with deploy date
         run: sed -i "s|<lastmod>[^<]*</lastmod>|<lastmod>$(date -u +%Y-%m-%d)</lastmod>|" sitemap.xml
 
+      # Cloudflare caches static assets for a year, so give each deploy new asset URLs
+      - name: Cache-bust CSS and JS links
+        run: sed -i -E "s#(href=\"/?styles\.css|src=\"script\.js)\"#\1?v=${GITHUB_SHA::7}\"#" index.html 404.html
+
       - name: Deploy to Firebase Hosting (live)
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
