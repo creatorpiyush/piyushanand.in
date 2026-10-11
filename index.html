@@ -24,16 +24,17 @@
   "name": "Piyush Anand",
   "url": "https://piyushanand.in/",
   "image": "https://piyushanand.in/img/me.jpg",
-  "jobTitle": "Software Engineer",
+  "jobTitle": "Associate Staff Engineer",
   "description": "Software engineer building AI/RAG systems, MCP servers, Flutter apps, and cloud-native CI/CD pipelines.",
   "worksFor": { "@type": "Organization", "name": "Nagarro", "url": "https://www.nagarro.com/" },
   "alumniOf": { "@type": "CollegeOrUniversity", "name": "Bharati Vidyapeeth's College of Engineering, New Delhi" },
   "address": { "@type": "PostalAddress", "addressLocality": "New Delhi", "addressCountry": "IN" },
-  "knowsAbout": ["Retrieval-Augmented Generation", "Model Context Protocol", "Azure OpenAI", "Flutter", "Node.js", "TypeScript", "CI/CD", "DevOps", "OpenShift"],
+  "knowsAbout": ["Retrieval-Augmented Generation", "Model Context Protocol", "Azure OpenAI", "Flutter", "Node.js", "TypeScript", "Dart", "Static Analysis", "CI/CD", "DevOps", "OpenShift"],
   "sameAs": [
     "https://www.linkedin.com/in/creatorpiyush",
     "https://github.com/creatorpiyush",
-    "https://www.npmjs.com/~creatorpiyush"
+    "https://www.npmjs.com/~creatorpiyush",
+    "https://pub.dev/packages/arch_guard"
   ]
 }
 </script>
@@ -166,13 +167,13 @@
         <div class="readme-meta">README preview · rendered</div>
         <p>I'm a software engineer at <strong>Nagarro</strong>, where I've spent the last four years growing from Trainee to <strong>Associate Staff Engineer</strong> - mostly by chasing problems that sit at the edge of what I already know how to do.</p>
         <p>These days that means building <strong>AI tooling</strong> for a client engagement: I've architected an <strong>MCP (Model Context Protocol)</strong> server exposing tools and prompts over their internal ecosystem — built in <strong>Node.js/TypeScript</strong>, deployed on <strong>OpenShift</strong> — and delivered low-code AI automation on <strong>n8n</strong>, including an AI-assisted code-review tool and an on-prem GitLab integration, to fit their on-prem-only infrastructure requirements. Before that, I spent a good stretch building a <strong>Flutter loyalty app for a German airline</strong> now at <strong>36M+ installs and 7M+ active users</strong>, and automating the CI/CD pipelines that got our releases out faster and with less manual QA.</p>
-        <p>I like systems that are both correct and pleasant to operate - pipelines that don't page anyone at 2am, mobile apps that feel instant, and AI features that fail gracefully instead of confidently making things up. Outside of client work, I've published research on ML-based COVID-19 detection, open-sourced <strong>verihook</strong> and <strong>raglite-toolkit</strong> across npm and PyPI, and I keep a running list of side projects, from offline LLM apps to real-time multiplayer games.</p>
+        <p>I like systems that are both correct and pleasant to operate - pipelines that don't page anyone at 2am, mobile apps that feel instant, and AI features that fail gracefully instead of confidently making things up. Outside of client work, I've published research on ML-based COVID-19 detection, open-sourced <strong>verihook</strong>, <strong>raglite-toolkit</strong>, and <strong>arch_guard</strong> across npm, PyPI, and pub.dev, and I keep a running list of side projects, from offline LLM apps to real-time multiplayer games.</p>
         <div class="stat-row">
           <div class="stat"><b data-count="4" data-suffix="+">0</b><span>Years at Nagarro</span></div>
           <div class="stat"><b data-count="36" data-suffix="M+">0</b><span>Installs (7M+ active users)</span></div>
           <div class="stat"><b>Top 5%</b><span>Performance, 4 cycles running</span></div>
           <div class="stat"><b data-count="60" data-suffix="%">0</b><span>Release effort cut via CI/CD</span></div>
-          <div class="stat"><b data-count="3" data-suffix="">0</b><span>Packages published (npm + PyPI)</span></div>
+          <div class="stat"><b data-count="3" data-suffix="">0</b><span>Packages published (npm, PyPI, pub.dev)</span></div>
         </div>
       </div>
     </section>
@@ -268,9 +269,9 @@
         <div class="project-grid">
           <div class="project-card project-card--pkg">
             <div class="pf-head"><span class="icon">▹</span><h3>verihook</h3><span class="pkg-badge">published</span></div>
-            <p>A zero-dependency, lightweight webhook verification &amp; signing library for Node.js, TypeScript, and edge runtimes (Cloudflare Workers, Hono, Next.js) with HMAC SHA-256 multi-provider support.</p>
+            <p>A universal, typed, zero-dependency webhook verification &amp; signing library - 40+ providers (Stripe, GitHub, Shopify, Slack, Razorpay, Adyen, and more) with HMAC and Ed25519 signatures, adapters for Express, Fastify, NestJS, Next.js, Hono, SvelteKit, Astro, and AWS Lambda, and edge-runtime support.</p>
             <div class="stack-row">
-              <span class="stack-chip">TypeScript</span><span class="stack-chip">Node.js</span><span class="stack-chip">Webhooks</span><span class="stack-chip">HMAC</span>
+              <span class="stack-chip">TypeScript</span><span class="stack-chip">Node.js</span><span class="stack-chip">Webhooks</span><span class="stack-chip">HMAC / Ed25519</span>
             </div>
             <div class="pkg-links">
               <a href="https://www.npmjs.com/package/verihook" target="_blank" rel="noopener">npm ↗</a>
@@ -278,14 +279,13 @@
             </div>
             <div class="pkg-shields">
               <img src="https://img.shields.io/npm/v/verihook?style=flat-square&color=4FD1C5&label=npm" alt="npm version">
-              <img src="https://img.shields.io/github/stars/creatorpiyush/verihook?style=flat-square&color=A399F0&label=stars" alt="GitHub stars">
             </div>
           </div>
           <div class="project-card project-card--pkg">
             <div class="pf-head"><span class="icon">▹</span><h3>raglite-toolkit</h3><span class="pkg-badge">published</span></div>
-            <p>A toolkit for building semantic search, multi-provider Q&amp;A, and REST APIs over documents in a few lines of code - ships as a Node.js package and a Python port with full feature parity.</p>
+            <p>A toolkit for building semantic search, multi-provider Q&amp;A, and REST APIs over documents in a few lines of code - ships as a TypeScript/Node.js package and a Python port with full feature parity.</p>
             <div class="stack-row">
-              <span class="stack-chip">Node.js</span><span class="stack-chip">Python</span><span class="stack-chip">RAG</span><span class="stack-chip">FastAPI</span>
+              <span class="stack-chip">TypeScript</span><span class="stack-chip">Python</span><span class="stack-chip">RAG</span><span class="stack-chip">FastAPI</span>
             </div>
             <div class="pkg-links">
               <a href="https://www.npmjs.com/package/raglite-toolkit" target="_blank" rel="noopener">npm ↗</a>
@@ -294,6 +294,20 @@
             <div class="pkg-shields">
               <img src="https://img.shields.io/npm/v/raglite-toolkit?style=flat-square&color=4FD1C5&label=npm" alt="npm version">
               <img src="https://img.shields.io/pypi/v/raglite-toolkit?style=flat-square&color=A399F0&label=pypi" alt="PyPI version">
+            </div>
+          </div>
+          <div class="project-card project-card--pkg">
+            <div class="pf-head"><span class="icon">▹</span><h3>arch_guard</h3><span class="pkg-badge">published</span></div>
+            <p>A CLI tool and Dart library for static architecture analysis - enforces Clean Architecture layer rules, measures circular dependencies, and renders dependency-graph visualizations.</p>
+            <div class="stack-row">
+              <span class="stack-chip">Dart</span><span class="stack-chip">CLI</span><span class="stack-chip">Static Analysis</span><span class="stack-chip">Clean Architecture</span>
+            </div>
+            <div class="pkg-links">
+              <a href="https://pub.dev/packages/arch_guard" target="_blank" rel="noopener">pub.dev ↗</a>
+              <a href="https://github.com/creatorpiyush/arch_guard" target="_blank" rel="noopener">GitHub ↗</a>
+            </div>
+            <div class="pkg-shields">
+              <img src="https://img.shields.io/pub/v/arch_guard?style=flat-square&color=4FD1C5&label=pub" alt="pub.dev version">
             </div>
           </div>
           <div class="project-card">
@@ -326,9 +340,9 @@
       <div class="section-panel reveal">
         <div class="code-block">
           <div class="code-line"><span class="ln">1</span><span class="p">{</span></div>
-          <div class="code-line"><span class="ln">2</span>&nbsp;&nbsp;<span class="k">"languages"</span><span class="p">:</span> <span class="b">[</span><span class="s">"TypeScript"</span><span class="p">,</span> <span class="s">"JavaScript"</span><span class="p">,</span> <span class="s">"Dart"</span><span class="p">,</span> <span class="s">"Java"</span><span class="p">,</span> <span class="s">"Python"</span><span class="p">,</span> <span class="s">"C++"</span><span class="p">,</span> <span class="s">"SQL"</span><span class="b">]</span><span class="p">,</span></div>
+          <div class="code-line"><span class="ln">2</span>&nbsp;&nbsp;<span class="k">"languages"</span><span class="p">:</span> <span class="b">[</span><span class="s">"TypeScript"</span><span class="p">,</span> <span class="s">"JavaScript"</span><span class="p">,</span> <span class="s">"Dart"</span><span class="p">,</span> <span class="s">"Java"</span><span class="p">,</span> <span class="s">"Python"</span><span class="p">,</span> <span class="s">"C++"</span><span class="p">,</span> <span class="s">"SQL"</span><span class="p">,</span> <span class="s">"HTML/CSS"</span><span class="b">]</span><span class="p">,</span></div>
           <div class="code-line"><span class="ln">3</span>&nbsp;&nbsp;<span class="k">"ai_ml"</span><span class="p">:</span> <span class="b">[</span><span class="s">"Azure OpenAI"</span><span class="p">,</span> <span class="s">"RAG Systems"</span><span class="p">,</span> <span class="s">"MCP"</span><span class="p">,</span> <span class="s">"LangChain"</span><span class="p">,</span> <span class="s">"FlowiseAI"</span><span class="p">,</span> <span class="s">"n8n"</span><span class="p">,</span> <span class="s">"Prompt Engineering"</span><span class="b">]</span><span class="p">,</span></div>
-          <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="k">"frameworks"</span><span class="p">:</span> <span class="b">[</span><span class="s">"Flutter"</span><span class="p">,</span> <span class="s">"Node.js"</span><span class="p">,</span> <span class="s">"Express.js"</span><span class="p">,</span> <span class="s">"Spring Boot"</span><span class="p">,</span> <span class="s">"Angular"</span><span class="p">,</span> <span class="s">"React.js"</span><span class="p">,</span> <span class="s">"Socket.io"</span><span class="b">]</span><span class="p">,</span></div>
+          <div class="code-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="k">"frameworks"</span><span class="p">:</span> <span class="b">[</span><span class="s">"Flutter"</span><span class="p">,</span> <span class="s">"Node.js"</span><span class="p">,</span> <span class="s">"Express.js"</span><span class="p">,</span> <span class="s">"FastAPI"</span><span class="p">,</span> <span class="s">"Spring Boot"</span><span class="p">,</span> <span class="s">"Angular"</span><span class="p">,</span> <span class="s">"React.js"</span><span class="p">,</span> <span class="s">"Socket.io"</span><span class="b">]</span><span class="p">,</span></div>
           <div class="code-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="k">"cloud_devops"</span><span class="p">:</span> <span class="b">[</span><span class="s">"Azure"</span><span class="p">,</span> <span class="s">"AWS"</span><span class="p">,</span> <span class="s">"OpenShift"</span><span class="p">,</span> <span class="s">"Jenkins"</span><span class="p">,</span> <span class="s">"Docker"</span><span class="p">,</span> <span class="s">"SonarQube"</span><span class="p">,</span> <span class="s">"CI/CD"</span><span class="p">,</span> <span class="s">"Git"</span><span class="b">]</span><span class="p">,</span></div>
           <div class="code-line"><span class="ln">6</span>&nbsp;&nbsp;<span class="k">"databases"</span><span class="p">:</span> <span class="b">[</span><span class="s">"MongoDB"</span><span class="p">,</span> <span class="s">"MySQL"</span><span class="p">,</span> <span class="s">"PostgreSQL"</span><span class="b">]</span><span class="p">,</span></div>
           <div class="code-line"><span class="ln">7</span>&nbsp;&nbsp;<span class="k">"practices"</span><span class="p">:</span> <span class="b">[</span><span class="s">"BDD / Gherkin"</span><span class="p">,</span> <span class="s">"Agile / Scrum"</span><span class="p">,</span> <span class="s">"REST APIs"</span><span class="p">,</span> <span class="s">"Microservices"</span><span class="b">]</span></div>
