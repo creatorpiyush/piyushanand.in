@@ -1,0 +1,188 @@
+% ATS-Friendly Resume Template
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{cmap}
+\usepackage[T1]{fontenc}
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{geometry}
+
+% Hyperlink styling - change hidelinks to colorlinks for underlines
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+}
+
+\geometry{
+    a4paper,
+    left=0.7in,
+    right=0.7in,
+    top=0.35in,
+    bottom=0.3in,
+    footskip=8pt
+}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Section formatting
+\titleformat{\section}{
+  \vspace{-5pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-1pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \textbf{#1} \hfill #2 \\
+    \textit{\small#3} \hfill \textit{\small #4} \\
+    \vspace{-6pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}\setlength{\itemsep}{-2pt}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-4pt}}
+
+\begin{document}
+
+% Header
+\begin{center}
+    \textbf{\Huge \scshape Piyush Anand} \\ \vspace{1pt}
+    \small New Delhi, India $|$ 
+    \href{tel:9999848631}{+91-9999848631} $|$ 
+    \href{mailto:piyushanand.1221@gmail.com}{piyushanand.1221@gmail.com} \\
+    \href{https://www.linkedin.com/in/creatorpiyush}{linkedin.com/in/creatorpiyush} $|$
+    \href{https://www.piyushanand.in}{piyushanand.in} $|$
+    \href{https://github.com/creatorpiyush}{github.com/creatorpiyush}
+\end{center}
+
+% Summary
+\section{Professional Summary}
+\small{Software Engineer (4+ years) building production AI/GenAI systems and full-stack applications. Architected RAG pipelines on Azure OpenAI, LangChain, and FlowiseAI for enterprise AI adoption, and shipped a Flutter mobile app with 36M+ installs and a 7M+ active user base. Published and maintain 3 open-source packages across npm, PyPI, and pub.dev. Recognized as "Brightest Mind" by Business Unit; ranked top 5\% for performance across 4 consecutive review cycles.}
+
+% Experience
+\section{Experience}
+  \resumeSubHeadingListStart
+  
+    \resumeSubheading
+      {Nagarro Software Pvt. Ltd.}{Gurugram, India}
+      {Associate Staff Engineer (prev. Senior SWE, Engineer, Trainee)}{Jul 2022 -- Present}
+      \resumeItemListStart
+        \resumeItem{Promoted 4 times in 4 years -- Trainee $\rightarrow$ Associate Engineer $\rightarrow$ Engineer $\rightarrow$ Senior Software Engineer $\rightarrow$ \textbf{Associate Staff Engineer} (Jun 2026)}
+        \resumeItem{Led \textbf{AI chapter development} for the Business Unit: architected \textbf{RAG systems} on \textbf{Azure OpenAI}, local models, and \textbf{FlowiseAI}, and ran AI training workshops to drive adoption across engineering teams}
+        \resumeItem{For a client engagement, architected an \textbf{MCP (Model Context Protocol) server} exposing tools and prompts over the client's internal maintainable ecosystem (\textbf{Node.js, TypeScript}), deployed on \textbf{OpenShift}}
+        \resumeItem{Delivered \textbf{low-code/no-code AI automation} on \textbf{n8n} to fit the client's on-prem-only infrastructure requirements -- including an AI-assisted \textbf{code-review} tool and an integration with on-prem \textbf{GitLab}}
+        \resumeItem{Engineered a \textbf{Flutter} mobile app for a German airline's loyalty platform, reaching \textbf{36M+ installs} and a \textbf{7M+ active user} base across iOS and Android}
+        \resumeItem{Built \textbf{CI/CD pipelines} (Jenkins, Docker) for PROD/BETA releases and automated \textbf{BDD/Gherkin} regression testing, cutting release-cycle effort by \textbf{60\%} and removing manual QA overhead}
+        \resumeItem{Recognized as \textbf{"Brightest Mind"} by Business Unit; sustained \textbf{top 5\%} performance rating across \textbf{4 consecutive} review cycles}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {CEOITBOX}{Delhi, India}
+      {Node.js Development Intern}{Feb 2022 -- May 2022}
+      \resumeItemListStart
+        \resumeItem{Built full-stack web applications with \textbf{Node.js}, \textbf{MySQL}, \textbf{MongoDB}, and Handlebars, shipping responsive, production-ready UIs}
+        \resumeItem{Managed production deployments on DigitalOcean and Contabo, maintaining \textbf{99\% uptime}}
+        \resumeItem{\textit{Earlier: Web Development Intern, iDigizen \& Gosensing (Nov 2020 -- Oct 2021) -- built responsive websites and internal tools}}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% Technical Skills
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{AI / GenAI}{: RAG Systems, MCP (Model Context Protocol), Azure OpenAI, LangChain, FlowiseAI, n8n, Prompt Engineering, LLM Integration} \\
+     \textbf{Languages}{: JavaScript/TypeScript, Python, Dart, Java, C++, SQL, HTML/CSS} \\
+     \textbf{Frameworks}{: Node.js, Express.js, FastAPI, Flutter, React.js, Angular, Spring Boot, Socket.io} \\
+     \textbf{Cloud \& DevOps}{: Azure, AWS, OpenShift, Docker, Jenkins, CI/CD, SonarQube, Git} \\
+     \textbf{Databases}{: MongoDB, MySQL, PostgreSQL} \\
+     \textbf{Practices}{: REST APIs, Microservices, MVC, OOP, BDD/Gherkin, Agile/Scrum}
+    }}
+ \end{itemize}
+
+% Projects
+\section{Projects}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {raglite-toolkit -- Published Package (npm + PyPI)}{\href{https://www.npmjs.com/package/raglite-toolkit}{npm} $|$ \href{https://pypi.org/project/raglite-toolkit/}{PyPI}}
+      {TypeScript, Node.js, Python, RAG, FastAPI}{}
+      \resumeItemListStart
+        \resumeItem{Built and published a RAG toolkit for semantic search and multi-provider Q\&A over documents, exposed via REST APIs -- shipped as a TypeScript/Node.js package and a feature-complete Python port, versioned on both npm and PyPI}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {verihook -- Published Package (npm)}{\href{https://www.npmjs.com/package/verihook}{npm} $|$ \href{https://github.com/creatorpiyush/verihook}{GitHub}}
+      {TypeScript, Node.js, HMAC/Ed25519, Edge Runtimes}{}
+      \resumeItemListStart
+        \resumeItem{Authored a universal, typed, zero-dependency webhook verification and signing library supporting \textbf{40+ providers} (Stripe, GitHub, Shopify, Razorpay, Adyen, and more) with HMAC and Ed25519 signatures, plus adapters for Express, Fastify, NestJS, Next.js, Hono, and AWS Lambda}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {arch\_guard -- Published Package (pub.dev)}{\href{https://pub.dev/packages/arch_guard}{pub.dev} $|$ \href{https://github.com/creatorpiyush/arch_guard}{GitHub}}
+      {Dart, CLI, Static Analysis, Clean Architecture}{}
+      \resumeItemListStart
+        \resumeItem{Built a CLI tool and Dart library for static architecture analysis -- enforces Clean Architecture layer rules, measures circular dependencies, and renders dependency-graph visualizations}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {RailWhisp -- Offline LLM Mobile App}{}
+      {Flutter, On-device ML, Azure, Node.js}{}
+      \resumeItemListStart
+        \resumeItem{Built an offline-first LLM application in Flutter for a Business Unit hackathon, delivering AI-powered features with zero internet connectivity}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+% Education
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Bharati Vidyapeeth's College of Engineering}{New Delhi, India}
+      {Bachelor of Technology in Electronics and Communications Engineering -- GPA: \textbf{8.54}/10.0}{2018 -- 2022}
+  \resumeSubHeadingListEnd
+
+% Achievements & Publications
+\section{Achievements \& Publications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     Published research at \textbf{IC4S-2020} on Machine Learning applications in COVID-19 detection and diagnosis, facilitated by \textbf{ICMR} (Indian Council of Medical Research)
+    }}
+ \end{itemize}
+
+% Certifications
+\section{Certifications}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     Certified React.js Developer $|$ Certified Web Developer $|$ Java (Basic) Certificate $|$ Crux -- Java \& Data Structures/Algorithms $|$ Programming with C and C++
+    }}
+ \end{itemize}
+
+\end{document}
