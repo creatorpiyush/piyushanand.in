@@ -10,7 +10,7 @@ Dear [Hiring Manager / Team],
 
 I'm applying for the [Role] position at [Company]. I'm an Associate Staff Engineer at Nagarro, where since 2025 I've been building AI systems that run in production for enterprise clients, not just in demos.
 
-Most recently, I architected an MCP (Model Context Protocol) server in Node.js and TypeScript that exposes tools and prompts over a client's internal ecosystem, deployed on OpenShift. For the same client, whose infrastructure is strictly on-prem, I delivered AI automation on n8n, including an AI-assisted code-review tool integrated with their GitLab. Before that, I led the AI chapter for my business unit: I built RAG systems on Azure OpenAI, local models, and FlowiseAI, and ran workshops to help engineering teams adopt them.
+Most recently, I architected an MCP (Model Context Protocol) server in Node.js and TypeScript that exposes tools and prompts over a client's internal ecosystem, deployed on OpenShift. For the same client, whose infrastructure is strictly on-prem, I delivered AI automation on n8n, including an AI-assisted code-review tool integrated with their GitLab. I also owned two Node.js/TypeScript microservices end to end for a large enterprise client, with service-to-service calls secured by Microsoft Entra ID. Before that, I led the AI chapter for my business unit: I built RAG systems on Azure OpenAI, local models, and FlowiseAI, and ran workshops to help engineering teams adopt them.
 
 Outside client work, I maintain raglite-toolkit, a RAG toolkit for semantic search and Q&A that I publish for both Node.js (npm) and Python (PyPI). I've also built an offline LLM mobile app and published research on ML-based COVID-19 detection.
 
@@ -30,7 +30,7 @@ Dear [Hiring Manager / Team],
 
 I'm applying for the [Role] position at [Company]. I'm an Associate Staff Engineer at Nagarro with 4+ years of building backend services, integrations, and delivery pipelines, mostly in Node.js and TypeScript.
 
-At Nagarro, I architected an MCP server in Node.js/TypeScript that exposes a client's internal systems as tools for LLM agents, containerized and deployed on OpenShift. I also integrated the client's on-prem GitLab with n8n workflows under strict on-prem-only constraints. On a mobile platform with 36M+ installs, I built the Jenkins and Docker CI/CD pipelines for PROD and BETA releases and automated BDD regression testing. That work cut release-cycle effort by 60% and removed manual QA from the critical path.
+At Nagarro, I architected an MCP server in Node.js/TypeScript that exposes a client's internal systems as tools for LLM agents, containerized and deployed on OpenShift. For a large enterprise client, I owned two microservices end to end on Azure: user-migration and reconciliation jobs, plus service-to-service communication secured with Microsoft Entra ID. I also integrated the client's on-prem GitLab with n8n workflows under strict on-prem-only constraints. On a mobile platform with 36M+ installs, I built the Jenkins and Docker CI/CD pipelines for PROD and BETA releases and automated BDD regression testing. That work cut release-cycle effort by 60% and removed manual QA from the critical path.
 
 I also maintain three open-source libraries. The one closest to backend work is verihook, a typed, zero-dependency webhook verification library for Node.js. It supports 40+ providers, with HMAC and Ed25519 signatures and adapters for Express, Fastify, NestJS, and AWS Lambda.
 
@@ -50,7 +50,7 @@ Dear [Hiring Manager / Team],
 
 I'm applying for the [Role] position at [Company]. I'm an Associate Staff Engineer at Nagarro, and over 4+ years I've shipped products end to end: mobile clients, backend services, and the pipelines that release them.
 
-My largest project was a Flutter app for a German airline's loyalty platform, which now has 36M+ installs and 7M+ active users on iOS and Android. On the same project, I built the CI/CD pipelines and automated the regression testing, which cut release-cycle effort by 60%. More recently, I've worked on the server side: a Node.js/TypeScript MCP server deployed on OpenShift, and n8n automation integrated with a client's on-prem GitLab.
+My largest project was a Flutter app for a German airline's loyalty platform, which now has 36M+ installs and 7M+ active users on iOS and Android. On the same project, I built the CI/CD pipelines and automated the regression testing, which cut release-cycle effort by 60%. More recently, I've worked on the server side: two Node.js/TypeScript microservices I owned end to end on Azure, secured with Microsoft Entra ID; an MCP server deployed on OpenShift; and n8n automation integrated with a client's on-prem GitLab.
 
 In my own time, I've built Draw'N'Guess, a real-time multiplayer drawing game on Node.js and Socket.io. I also maintain three published packages across npm, PyPI, and pub.dev, including arch_guard, a Dart CLI that enforces Clean Architecture layer rules.
 
