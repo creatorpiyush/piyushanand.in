@@ -29,3 +29,6 @@ jobs:
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_PIYUSHANAND_IN }}
           channelId: live
           projectId: piyushanand-in
+          # 15.35.0+ checks the Service Usage API, which this service account cannot read (403).
+          # Unpin after granting it roles/serviceusage.serviceUsageConsumer.
+          firebaseToolsVersion: 15.33.0
